@@ -153,7 +153,7 @@ alpha = compute_robust_support_alpha(support_feats_layers, smooth=False, alpha_m
 # ------------------ Step 4: Infer on test set ------------------
 all_labels, all_preds = infer_fewshot(
     model, test_loader, 
-    cache_keys_layers, cache_values_layers, text_feats_global, 
+    cache_keys_layers, cache_values_layers, text_feats_global, weights = weights,
     equiv_logit_scale=equiv_logit_scale, a=alpha, beta_ot=10, device=device, layers=best_layers
 )
 

@@ -524,8 +524,7 @@ def compute_equivalent_logit_scale(model, support_loader, text_features, device,
 
 
 
-def infer_fewshot(model, test_loader, cache_keys_layers, cache_values_layers, text_feats_global, equiv_logit_scale=40, a=0.5, beta_ot=10, device="cuda", layers=[5,7,9,11]):
-    weights = torch.tensor([1.0/len(layers)]*len(layers)).to(device)
+def infer_fewshot(model, test_loader, cache_keys_layers, cache_values_layers, text_feats_global, weights , equiv_logit_scale, a, beta_ot=10, device="cuda", layers=[5,7,9,11]):
     all_labels, all_preds = [], []
 
     with torch.no_grad():
